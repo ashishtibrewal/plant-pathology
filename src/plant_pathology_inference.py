@@ -15,9 +15,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-import tkinter as tk
-from tkinter import filedialog
-
 from IPython.display import SVG
 from PIL import Image
 
