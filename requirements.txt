@@ -1,0 +1,7 @@
+streamlit==0.80.0
+tensorflow==2.4.1
+numpy==1.19.5
+opencv_python_headless==4.5.1.48
+plotly==4.14.3
+ipython==7.22.0
+Pillow==8.2.0
