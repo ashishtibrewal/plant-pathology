@@ -45,7 +45,7 @@ def load_model():
                       loss = 'categorical_crossentropy',
                       metrics=['categorical_accuracy'])
     # model.summary()
-    model.load_weights('../weights/20210405-232711--30b7fd1c-69ed-4482-9736-eaa29729d7ce')
+    model.load_weights('weights/20210405-232711--30b7fd1c-69ed-4482-9736-eaa29729d7ce')
     # SVG(tf.keras.utils.model_to_dot(Model(model.layers[0].input, model.layers[0].layers[13].output), dpi=70).create(prog='dot', format='svg'))
     # SVG(tf.keras.utils.model_to_dot(model, dpi=70).create(prog='dot', format='svg'))
     return model
