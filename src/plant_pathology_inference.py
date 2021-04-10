@@ -21,6 +21,9 @@ from PIL import Image
 import streamlit as st
 import numpy as np
 
+import random
+import os
+
 
 # In[2]:
 
@@ -28,7 +31,8 @@ import numpy as np
 def load_image(img_buffer):
     # image = cv2.imread(img_buffer)
     image = np.array(Image.open(img_buffer))
-    return cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    image_orig = np.copy(image)
+    return image_orig, cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 #load model
 def load_model():
@@ -89,10 +93,20 @@ if __name__ == "__main__":
     st.title("Leaf Pest Detection")
     img_buffer = st.file_uploader('Upload leaf image')
     # img_path = '../../gcp/images/Test_18.jpg'
+    if img_buffer is not None:
+        img_orig, img = load_image(img_buffer)
+        st.write("Loading image...")
+    else:
+        st.stop()
+        # img_path = random.choice(os.listdir("test/"))
+        # img = load_image("test/" + img_path)
+        # st.write("No image uploaded. Running on a randomly selected test image.")
+    st.write("Loading model...")
     model = load_model()
-    img = load_image(img_buffer)
+    st.write("Running model...")
     preds = predict(img)
-    format_results(img, preds)
+    format_results(img_orig, preds)
+    st.write("If you would like to test another image, please click on the \"Browse files\" button above and select the image.")
 
 
 #predict on test images
