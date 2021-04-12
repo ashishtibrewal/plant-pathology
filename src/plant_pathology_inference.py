@@ -93,7 +93,7 @@ def format_results(img, preds):
 
 if __name__ == "__main__":
     st.title("Leaf Pest Detection")
-    img_buffer = st.file_uploader('Upload leaf image')
+    img_buffer = st.file_uploader('Upload leaf image (Currently only JPEGs supported.)')
     # img_path = '../../gcp/images/Test_18.jpg'
     if img_buffer is not None:
         img_orig, img = load_image(img_buffer)
